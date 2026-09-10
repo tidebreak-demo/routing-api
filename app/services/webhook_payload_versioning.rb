@@ -9,7 +9,7 @@ class WebhookPayloadVersioning
   end
 
   def call
-    return :out_of_area unless crew.covers?(job.site)
+    return :unavailable unless crew.available?(job.window)
 
     job.assign(crew)
   end
